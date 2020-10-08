@@ -31,6 +31,18 @@ void Server::init() {
     }
     cout << "listen() succeed" << endl;
 
+    // for udp
+    if (listenSocketU = socket(PF_INET, SOCK_DGRAM, IPPROTO_TCP) == -1)
+        throw "udp socket() error!"
+    cout << "udp socket() success"
+
+    struct sockaddr_in toAddr = {}
+	toAddr.sin_family = AF_INET;
+	toAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	toAddr.sin_port = htons(port);
+     
+
+
     bThreadRun = true;
     loopThread = new thread(&Server::loop, this);
 }

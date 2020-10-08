@@ -30,6 +30,10 @@ public:
 	inline set<int> getClientSocketList() {
 		return clientSocketList;
 	}
+	// for udp
+	inline set<int> getUdpClients() {
+		return udpClientList;
+	}
 
 	inline void setOnAccept(AcceptFunc onAccept) {
 		this->onAccept = onAccept;
@@ -46,6 +50,10 @@ private:
 
 	int listenSocket = -1;
 	set<int> clientSocketList;
+
+	// for udp
+	int listen_socketU = -1
+	set<int> updClientList;
 
 	thread *loopThread = nullptr;
 	bool bThreadRun;
